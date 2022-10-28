@@ -4,7 +4,7 @@ This project, Pronunciation-assisted Subword Modeling, generates linguistically
 meaningful subwords by analyzing a corpus and a dictionary. See `./run.sh` for a
 complete example. The method is described here,
 
-[Original Paper](https://www.isca-speech.org/archive/pdfs/interspeech_2021/papadourakis21_interspeech.pdf)
+[Original Paper](https://arxiv.org/abs/1811.04284)
 
 ## Citation
 

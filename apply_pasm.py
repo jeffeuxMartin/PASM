@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/env python3
 
 import sys
 
@@ -8,30 +8,33 @@ def add_space(input):
     res += i + " "
   return res
 
+def apply_pasm():
+  subword_file = sys.argv[1]
 
-subword_file = sys.argv[1]
+  subword = open(subword_file)
 
-subword = open(subword_file)
+  subword_vec = []
 
-subword_vec = []
+  for word in subword:
+    subword_vec.append(word.strip())
 
-for word in subword:
-  subword_vec.append(word.strip())
+  #print (subword_vec)
 
-#print (subword_vec)
+  for raw_line in sys.stdin:
 
-for raw_line in sys.stdin:
+    raw_line = raw_line.replace(" ", "_ ")
+    # adding space, turn "TH" into "T H "
+    line = add_space(raw_line.strip())
 
-  raw_line = raw_line.replace(" ", "_ ")
-  # adding space, turn "TH" into "T H "
-  line = add_space(raw_line.strip())
+    for w in subword_vec:
+      line = line.replace(add_space(w), "  " + w + "  ")
 
-  for w in subword_vec:
-    line = line.replace(add_space(w), "  " + w + "  ")
+    line = line.replace("  ", " ")
+    line = line.replace("  ", " ")
+    line = line.replace("  ", " ")
+    line = line.replace(" _ ", "_ ")
+  #  line = line.replace(" _ ", "_")
+    print(line)
 
-  line = line.replace("  ", " ")
-  line = line.replace("  ", " ")
-  line = line.replace("  ", " ")
-  line = line.replace(" _ ", "_ ")
-#  line = line.replace(" _ ", "_")
-  print (line)
+if __name__ == "__main__":
+  apply_pasm()
